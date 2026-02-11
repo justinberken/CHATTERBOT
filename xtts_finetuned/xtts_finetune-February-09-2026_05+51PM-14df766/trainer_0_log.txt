@@ -1,0 +1,14 @@
+ > Training Environment:
+ | > Backend: Torch
+ | > Mixed precision: False
+ | > Precision: float32
+ | > Current device: 0
+ | > Num. of GPUs: 1
+ | > Num. of CPUs: 24
+ | > Num. of Torch Threads: 16
+ | > Torch seed: 54321
+ | > Torch CUDNN: True
+ | > Torch CUDNN deterministic: False
+ | > Torch CUDNN benchmark: False
+ | > Torch TF32 MatMul: False
+ > Start Tensorboard: tensorboard --logdir=C:\Users\Berken\Documents\GitHub\chatterbox\xtts_finetuned\xtts_finetune-February-09-2026_05+51PM-14df766

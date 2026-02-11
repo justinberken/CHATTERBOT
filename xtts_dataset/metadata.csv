@@ -1,0 +1,574 @@
+wavs/segment_0000.wav|Hey Jan, just wanted to run through these definitions with you quick. I'll show you|target_voice
+wavs/segment_0001.wav|how the inputs work and what all the parameters do. So let's first start off by, I'm going to|target_voice
+wavs/segment_0002.wav|disable the kangaroo solver and what I'll do is run through the bug that you were finding in the|target_voice
+wavs/segment_0003.wav|previous version. So essentially what it is, let me turn off the intersections as well. Okay,|target_voice
+wavs/segment_0004.wav|so you know how we have this billowing effect where it's essentially taking the middle node|target_voice
+wavs/segment_0005.wav|of the arc and increasing the Z value. So what happens is if this gets too high of a value,|target_voice
+wavs/segment_0007.wav|here, bring it up. What you'll see is that the billow, the arc that's being created is actually|target_voice
+wavs/segment_0008.wav|exceeding the ceiling of the cones. And so what happens is we get multiple intersections and it|target_voice
+wavs/segment_0009.wav|sort of just breaks everything. So what I have this set to is a lower number. I've got the limit|target_voice
+wavs/segment_0010.wav|set to 1500.|target_voice
+wavs/segment_0011.wav|And it may have to be lower than that. I haven't tested all of the possible variables, but what we|target_voice
+wavs/segment_0012.wav|want to make sure of is that this doesn't exceed the top. So we don't get multiple intersections.|target_voice
+wavs/segment_0013.wav|So given these values, I can turn the intersection back on and it takes just a moment for it to|target_voice
+wavs/segment_0014.wav|calculate.|target_voice
+wavs/segment_0015.wav|Okay.|target_voice
+wavs/segment_0016.wav|So I'm going to go ahead and run this.|target_voice
+wavs/segment_0017.wav|Okay.|target_voice
+wavs/segment_0018.wav|So I'm going to go ahead and run this.|target_voice
+wavs/segment_0019.wav|Okay.|target_voice
+wavs/segment_0020.wav|So I'm going to go ahead and run this.|target_voice
+wavs/segment_0021.wav|Okay.|target_voice
+wavs/segment_0022.wav|Okay.|target_voice
+wavs/segment_0023.wav|Okay.|target_voice
+wavs/segment_0024.wav|Okay.|target_voice
+wavs/segment_0025.wav|Okay.|target_voice
+wavs/segment_0026.wav|Okay.|target_voice
+wavs/segment_0027.wav|Okay.|target_voice
+wavs/segment_0028.wav|Okay.|target_voice
+wavs/segment_0029.wav|Alright.|target_voice
+wavs/segment_0030.wav|And you'll see we have straight pipes with doubly curved surfaces that are being created between the|target_voice
+wavs/segment_0031.wav|intersections and the pipes.|target_voice
+wavs/segment_0032.wav|So I changed this up a little bit.|target_voice
+wavs/segment_0033.wav|I actually,|target_voice
+wavs/segment_0035.wav|these this whole thing out separately so that each cone has all of its own surfaces in in one cluster|target_voice
+wavs/segment_0036.wav|so then this cluster if you double click inside of that this is all the functionality that's that's|target_voice
+wavs/segment_0037.wav|creating the the intersections and those resulting surfaces and then when you're done you can just|target_voice
+wavs/segment_0038.wav|or after you click into a cluster the way to get out of it is just go file and then save and return|target_voice
+wavs/segment_0039.wav|and it'll save whatever changes you made to the cluster and return back to the original document|target_voice
+wavs/segment_0040.wav|and another way to do it if you're in the cluster you can go up here and then just|target_voice
+wavs/segment_0041.wav|close the cluster if there are if you don't want to see the changes|target_voice
+wavs/segment_0042.wav|close the cluster and you get back to the main document and then one thing to note is that if|target_voice
+wavs/segment_0043.wav|you change this cluster it's going to also change all of these because they're they're linked it's|target_voice
+wavs/segment_0044.wav|basically a copy of the of this instance of one of these instances and then i also used a cluster|target_voice
+wavs/segment_0045.wav|over here in the kangaroo solver so i'll jump inside here and this is the the kangaroo solver|target_voice
+wavs/segment_0046.wav|the way that that it works is it has a a main component|target_voice
+wavs/segment_0047.wav|right here this is the solver and then you have all of these uh these goals that you're trying to|target_voice
+wavs/segment_0048.wav|try to set so this one is just telling the solver that you're you're going to preview the mesh|target_voice
+wavs/segment_0049.wav|this one's going to smooth the mesh this one is a constraint for the the|target_voice
+wavs/segment_0050.wav|the edges of of the mesh basically the triangles that are you know creating the mesh and then this|target_voice
+wavs/segment_0051.wav|is a component that keeps all of the points at the seaplane this one is an anchor around the|target_voice
+wavs/segment_0052.wav|perimeter so that the when you give pressure to the um to the surface it doesn't escape the the|target_voice
+wavs/segment_0053.wav|perimeter and then this is the actual pressure that we're adding to to inflate the surface|target_voice
+wavs/segment_0054.wav|whether you need to рoom in a dom formal or ufo type way to do that|target_voice
+wavs/segment_0055.wav|you can customize a little bit more about the juxtaposition and the|target_voice
+wavs/segment_0056.wav|whateverxtans and friction and the so a really interesting way to do this is when you open up|target_voice
+wavs/segment_0057.wav|a spacer it starts with three places so the first one is in here that we're notinnflation|target_voice
+wavs/segment_0059.wav|that essentially takes a interpolated curve, applies a mesh to it, and then allows me to|target_voice
+wavs/segment_0060.wav|inflate it based on the same constraints that I just showed you before. So what we want to do|target_voice
+wavs/segment_0061.wav|to start the simulation is we want to make sure that the pressure is set to zero,|target_voice
+wavs/segment_0062.wav|first of all, and then we'll do a reset.|target_voice
+wavs/segment_0063.wav|And then we can increase the pressure. You can see it's almost like it's breathing|target_voice
+wavs/segment_0064.wav|as I'm sliding. Now the other thing you can do is you can select the curve|target_voice
+wavs/segment_0065.wav|and edit it. But what you'll notice is that when I'm doing that there's some artifacting happening|target_voice
+wavs/segment_0066.wav|over here. And what you have to do to get rid of that is you just reset the solver after you change|target_voice
+wavs/segment_0067.wav|the input. So I've changed the input and I reset the solver and now that artifacting will go away.|target_voice
+wavs/segment_0068.wav|And what you can also do is if I|target_voice
+wavs/segment_0069.wav|create a new interpolated curve like that, just select it and then set one curve. Again,|target_voice
+wavs/segment_0070.wav|we have artifacting. What I'm going to do is set this back to zero, reset the solver, and then|target_voice
+wavs/segment_0071.wav|I can increase and decrease pressure. Now you see this one is pretty interactive and it's, you know,|target_voice
+wavs/segment_0072.wav|I'm seeing live updates. It's a really|target_voice
+wavs/segment_0073.wav|relatively lightweight mesh. But with this other definition, there's so many intersections and|target_voice
+wavs/segment_0074.wav|other things going on that it's not quite as a responsive interaction, I suppose.|target_voice
+wavs/segment_0075.wav|So what we'll do here is I'm going to turn on the solver. It's essentially a boolean that is|target_voice
+wavs/segment_0076.wav|telling the solver to turn on. So we'll turn that on.|target_voice
+wavs/segment_0077.wav|And what I should have done is set this to zero first before I turn it on but it seemed|target_voice
+wavs/segment_0078.wav|to work. Work okay now. I'm going to bring this to zero.|target_voice
+wavs/segment_0079.wav|Okay, and then I'm going to reset. It's just a button right here.|target_voice
+wavs/segment_0081.wav|Now we're back at zero, we've got a flat mesh, and if I increase this to let's say 15, you're|target_voice
+wavs/segment_0082.wav|going to notice that it's actually a bit lumpy.|target_voice
+wavs/segment_0083.wav|And the reason is because Kangaroo is an iterative solver, so it's going through this smoothing|target_voice
+wavs/segment_0084.wav|calculation.|target_voice
+wavs/segment_0085.wav|And the more times you run it through the calculation, the smoother it's actually going|target_voice
+wavs/segment_0086.wav|to get.|target_voice
+wavs/segment_0087.wav|So I'll increase this then to let's say 17.|target_voice
+wavs/segment_0088.wav|And let's say 20.|target_voice
+wavs/segment_0089.wav|It's kind of like you're stretching out the surface and then you can deflate it a bit|target_voice
+wavs/segment_0090.wav|back down to 15 and it'll be nice and smooth.|target_voice
+wavs/segment_0155.wav|Attach.|target_voice
+wavs/segment_0182.wav|and I'm going to change this to individual inflation.|target_voice
+wavs/segment_0183.wav|So now the inflation of these is going to be determined by|target_voice
+wavs/segment_0184.wav|this individual|target_voice
+wavs/segment_0185.wav|inputs over here. So this top left cone|target_voice
+wavs/segment_0186.wav|will be controlled right here and it works the same.|target_voice
+wavs/segment_0187.wav|I've got a reset button and an inflation. So let's put this one up to 15.|target_voice
+wavs/segment_0188.wav|And again you'll see it's a bit lumpy. We'll jump this to 20.|target_voice
+wavs/segment_0189.wav|Actually let's step up to 18 then 20.|target_voice
+wavs/segment_0190.wav|And then we'll sort of back it off back on down to 15 or 12|target_voice
+wavs/segment_0192.wav|And you'll see it's running quite a bit quicker because|target_voice
+wavs/segment_0193.wav|it's not actually trying to solve for all eight of these.|target_voice
+wavs/segment_0195.wav|So that should do it. I think that|target_voice
+wavs/segment_0196.wav|covers just about everything.|target_voice
+wavs/segment_0197.wav|If you have any questions just send me an email and we'll go from there.|target_voice
+wavs/segment_0199.wav|Hey Kevin this is a quick video walkthrough showing the elevation|target_voice
+wavs/segment_0200.wav|renders. I just wanted to walk through how it's set up and showing you|target_voice
+wavs/segment_0201.wav|the adjustments that we can make on the fly.|target_voice
+wavs/segment_0202.wav|So I've got all the materials and all the swatches pulled into the model|target_voice
+wavs/segment_0203.wav|so that when I draw the remaining.|target_voice
+wavs/segment_0204.wav|Homes that it'll be easy to just apply these textures as those models are complete.|target_voice
+wavs/segment_0205.wav|So you can see here the vinyl siding is currently set up to Tuscan clay and it's relatively easy|target_voice
+wavs/segment_0206.wav|if I wanted to change it to let's say sterling gray for instance and then the trim and the board|target_voice
+wavs/segment_0207.wav|and batten and the roof and then the garage door and front door also have all the swatches|target_voice
+wavs/segment_0208.wav|complete and then the floor is done.|target_voice
+wavs/segment_0209.wav|So that's pretty much it.|target_voice
+wavs/segment_0210.wav|So that's pretty much it.|target_voice
+wavs/segment_0211.wav|So that's pretty much it.|target_voice
+wavs/segment_0212.wav|So I can change those on the fly so you'll see that right now the garage door is I believe extra white|target_voice
+wavs/segment_0213.wav|and here I can change it to something else.|target_voice
+wavs/segment_0214.wav|And so then once those are all dialed in what I do is I export the image into Photoshop and you can see here|target_voice
+wavs/segment_0215.wav|I've got a pretty generic foreground that can be tweaked if you if you'd like me to.|target_voice
+wavs/segment_0216.wav|And then we can add vegetation if needed as well.|target_voice
+wavs/segment_0217.wav|And then we can add vegetation if needed as well.|target_voice
+wavs/segment_0218.wav|And then we can add vegetation if needed as well.|target_voice
+wavs/segment_0219.wav|So let me know what you think from here.|target_voice
+wavs/segment_0220.wav|So let me know what you think from here.|target_voice
+wavs/segment_0221.wav|The adjustments should be relatively easy to make seeing as the bones are kind of set up for the elevations.|target_voice
+wavs/segment_0222.wav|Hope that helps.|target_voice
+wavs/segment_0223.wav|Thanks.|target_voice
+wavs/segment_0225.wav|This is a walkthrough video on how to use Lesson 34 Version 2 definition.|target_voice
+wavs/segment_0226.wav|All right.|target_voice
+wavs/segment_0228.wav|All right.|target_voice
+wavs/segment_0230.wav|We have, let me hide this.|target_voice
+wavs/segment_0231.wav|Okay.|target_voice
+wavs/segment_0232.wav|We've got two ribs, the north and south.|target_voice
+wavs/segment_0233.wav|We've got points on the inside edge.|target_voice
+wavs/segment_0234.wav|Here and here and here.|target_voice
+wavs/segment_0235.wav|All right.|target_voice
+wavs/segment_0236.wav|So let's start with doing what I'm calling a left rib as you're facing it.|target_voice
+wavs/segment_0237.wav|Set one b-rep, then we're going to select these points.|target_voice
+wavs/segment_0238.wav|Set multiple.|target_voice
+wavs/segment_0239.wav|Right rib points.|target_voice
+wavs/segment_0240.wav|Set multiple.|target_voice
+wavs/segment_0241.wav|And it's automatically going to know which one is one and which one is two because of|target_voice
+wavs/segment_0242.wav|the it sorts by z value.|target_voice
+wavs/segment_0243.wav|Then what we're going to do is select all the clips.|target_voice
+wavs/segment_0244.wav|So do that.|target_voice
+wavs/segment_0245.wav|Set multiple.|target_voice
+wavs/segment_0246.wav|And then if we go into top view, this is the unroll.|target_voice
+wavs/segment_0247.wav|And you see if we go over to clip number one, or the first one here, it's called clip number|target_voice
+wavs/segment_0249.wav|I'll call it clip number one.|target_voice
+wavs/segment_0250.wav|But if we grab this one, go into properties and change it to clip two.|target_voice
+wavs/segment_0251.wav|And then rerun the definition.|target_voice
+wavs/segment_0252.wav|That'll change to clip two.|target_voice
+wavs/segment_0253.wav|So let's set this back to one.|target_voice
+wavs/segment_0254.wav|There we go.|target_voice
+wavs/segment_0255.wav|Rerun it.|target_voice
+wavs/segment_0257.wav|So from here, we're going to go down to.|target_voice
+wavs/segment_0258.wav|FAB bake.|target_voice
+wavs/segment_0259.wav|And all the fab geometry is going to bake.|target_voice
+wavs/segment_0260.wav|And if you want the dimensions to bake out, we're going to go into the active layer.|target_voice
+wavs/segment_0261.wav|Let's say the dim layer.|target_voice
+wavs/segment_0262.wav|And then we'll go over to where the dimensions are, which are over here.|target_voice
+wavs/segment_0263.wav|And we're just going to middle click, bake, middle click, bake, bake, and bake.|target_voice
+wavs/segment_0264.wav|And it's going to bake.|target_voice
+wavs/segment_0265.wav|And then it's going to go back down to the active layer.|target_voice
+wavs/segment_0266.wav|And then we're going to go into the active layer.|target_voice
+wavs/segment_0267.wav|And bake.|target_voice
+wavs/segment_0268.wav|So now we have them baked in the grasshopper.|target_voice
+wavs/segment_0269.wav|And then if we want these text dots to bake out as well, we'll have to do the same thing.|target_voice
+wavs/segment_0270.wav|So I'll just make a new layer called VOT.|target_voice
+wavs/segment_0271.wav|Make that the active layer.|target_voice
+wavs/segment_0272.wav|Middle click, bake.|target_voice
+wavs/segment_0273.wav|And now we'll have the text dots in there as well.|target_voice
+wavs/segment_0274.wav|And what you can do if you want to try to verify that things are correct.|target_voice
+wavs/segment_0275.wav|What I do is I'll grab this.|target_voice
+wavs/segment_0276.wav|I'll just copy it up some amount.|target_voice
+wavs/segment_0277.wav|Group it.|target_voice
+wavs/segment_0278.wav|And then move it from here over to here.|target_voice
+wavs/segment_0279.wav|And then you've got two and one.|target_voice
+wavs/segment_0280.wav|So I'm just going to roughly orient it the way it's supposed to go.|target_voice
+wavs/segment_0281.wav|There, two, one.|target_voice
+wavs/segment_0282.wav|And then if I do an orient three point.|target_voice
+wavs/segment_0283.wav|Go one, two, three.|target_voice
+wavs/segment_0284.wav|And then up here, one, two, three.|target_voice
+wavs/segment_0285.wav|And this way I can kind of verify in 3D and in 2D that everything is landing where it's supposed to.|target_voice
+wavs/segment_0286.wav|And this one looks like it, is it landing correctly?|target_voice
+wavs/segment_0287.wav|Yeah.|target_voice
+wavs/segment_0288.wav|It is.|target_voice
+wavs/segment_0289.wav|It's just I got confused because I saw this over here.|target_voice
+wavs/segment_0290.wav|But that one is correct.|target_voice
+wavs/segment_0291.wav|This one's good.|target_voice
+wavs/segment_0292.wav|So then I'll do the same with this.|target_voice
+wavs/segment_0293.wav|Just copy it up.|target_voice
+wavs/segment_0294.wav|Group.|target_voice
+wavs/segment_0295.wav|Move.|target_voice
+wavs/segment_0296.wav|Over here.|target_voice
+wavs/segment_0297.wav|And we've got the one, two.|target_voice
+wavs/segment_0298.wav|And the one, two.|target_voice
+wavs/segment_0299.wav|So you can just roughly bring it into place.|target_voice
+wavs/segment_0300.wav|Orient three points.|target_voice
+wavs/segment_0301.wav|Bam, bam, bam.|target_voice
+wavs/segment_0302.wav|And bam, bam, bam.|target_voice
+wavs/segment_0303.wav|That's looking good.|target_voice
+wavs/segment_0304.wav|That's supposed to be a quicker way to do it if you want to.|target_voice
+wavs/segment_0305.wav|It just depends on how you want to do it.|target_voice
+wavs/segment_0306.wav|You could just delete this.|target_voice
+wavs/segment_0307.wav|Just grab this.|target_voice
+wavs/segment_0308.wav|And then do an orient three point.|target_voice
+wavs/segment_0309.wav|And then set up here to copy.|target_voice
+wavs/segment_0310.wav|Set up that to yes.|target_voice
+wavs/segment_0311.wav|And then find the one and the two and then any edge.|target_voice
+wavs/segment_0312.wav|And then come over here and do one, two, and any edge.|target_voice
+wavs/segment_0313.wav|And then once it's there.|target_voice
+wavs/segment_0314.wav|Oops, I just escaped out of it.|target_voice
+wavs/segment_0315.wav|But what you can do is you can group it when it's in place.|target_voice
+wavs/segment_0316.wav|Or group it first.|target_voice
+wavs/segment_0317.wav|A million ways to skin a cat.|target_voice
+wavs/segment_0318.wav|But that one's looking good too.|target_voice
+wavs/segment_0319.wav|If you have any questions.|target_voice
+wavs/segment_0320.wav|Gimme a shout.|target_voice
+wavs/segment_0321.wav|All right, here's a quick little walkthrough of the S-wall.|target_voice
+wavs/segment_0322.wav|The 3D model.|target_voice
+wavs/segment_0323.wav|And the production files.|target_voice
+wavs/segment_0324.wav|So let's see here.|target_voice
+wavs/segment_0325.wav|First of all, the cap up here on top.|target_voice
+wavs/segment_0326.wav|And if I hide the top part.|target_voice
+wavs/segment_0327.wav|You'll see the plug that goes inside of it.|target_voice
+wavs/segment_0328.wav|Is offset a 16th of an inch in.|target_voice
+wavs/segment_0329.wav|So there's a little bit of wiggle room.|target_voice
+wavs/segment_0330.wav|When we're installing it.|target_voice
+wavs/segment_0331.wav|And then we have it reduced to three ribs total.|target_voice
+wavs/segment_0332.wav|If I select the three ribs.|target_voice
+wavs/segment_0333.wav|This is where they're located.|target_voice
+wavs/segment_0334.wav|And then taking a look at the production files.|target_voice
+wavs/segment_0335.wav|So the plank itself.|target_voice
+wavs/segment_0336.wav|It's just one part.|target_voice
+wavs/segment_0337.wav|That'll be repeated 361 times.|target_voice
+wavs/segment_0338.wav|There's 180 planks on the inside.|target_voice
+wavs/segment_0339.wav|181 on the outside.|target_voice
+wavs/segment_0340.wav|And then we have the end cap.|target_voice
+wavs/segment_0341.wav|Which there are two of them.|target_voice
+wavs/segment_0342.wav|Same exact geometry.|target_voice
+wavs/segment_0343.wav|And then up here we've got the bottom cap.|target_voice
+wavs/segment_0344.wav|So it will be this down here.|target_voice
+wavs/segment_0346.wav|It is split into 17 different parts.|target_voice
+wavs/segment_0347.wav|So we've got the bottom layer.|target_voice
+wavs/segment_0348.wav|That is felt.|target_voice
+wavs/segment_0349.wav|And then there's also a pen layer.|target_voice
+wavs/segment_0350.wav|And the reason the pen layer is there.|target_voice
+wavs/segment_0351.wav|Is so that when we.|target_voice
+wavs/segment_0352.wav|Cut the plug part of it.|target_voice
+wavs/segment_0353.wav|We know how to align it.|target_voice
+wavs/segment_0354.wav|And then for the top.|target_voice
+wavs/segment_0355.wav|It's just it's mirrored.|target_voice
+wavs/segment_0356.wav|Because we're, you know, we're cutting it like.|target_voice
+wavs/segment_0357.wav|Like that.|target_voice
+wavs/segment_0358.wav|Essentially.|target_voice
+wavs/segment_0360.wav|I have them labeled such that these are B7 for the bottoms.|target_voice
+wavs/segment_0362.wav|That'll be the same label for the plug portion as well.|target_voice
+wavs/segment_0364.wav|And then for the top.|target_voice
+wavs/segment_0365.wav|Caps.|target_voice
+wavs/segment_0366.wav|It's T1.|target_voice
+wavs/segment_0368.wav|T1 for these as well.|target_voice
+wavs/segment_0369.wav|So then we've got the ribs.|target_voice
+wavs/segment_0370.wav|Kind of the same thing.|target_voice
+wavs/segment_0371.wav|Except.|target_voice
+wavs/segment_0372.wav|We don't have a top and bottom condition.|target_voice
+wavs/segment_0373.wav|These just get.|target_voice
+wavs/segment_0374.wav|Cut three times each.|target_voice
+wavs/segment_0375.wav|And there are also 17 parts.|target_voice
+wavs/segment_0376.wav|So that should do it.|target_voice
+wavs/segment_0377.wav|Let me know if you guys have.|target_voice
+wavs/segment_0378.wav|Any questions.|target_voice
+wavs/segment_0379.wav|Hey, Kevin.|target_voice
+wavs/segment_0380.wav|So this is the master model for the elevations.|target_voice
+wavs/segment_0381.wav|And I'm just going to walk through.|target_voice
+wavs/segment_0382.wav|How the model is built in where the materials and such are.|target_voice
+wavs/segment_0383.wav|So what you see on your screen right now is the front view or the elevation view.|target_voice
+wavs/segment_0384.wav|Of these models.|target_voice
+wavs/segment_0385.wav|And it is set to rendered mode.|target_voice
+wavs/segment_0386.wav|Now we can also set it to.|target_voice
+wavs/segment_0387.wav|Shaded mode.|target_voice
+wavs/segment_0388.wav|So if I, if I right click.|target_voice
+wavs/segment_0389.wav|On this, or if I just click on the down key.|target_voice
+wavs/segment_0390.wav|Over here.|target_voice
+wavs/segment_0391.wav|And so a blue piece.|target_voice
+wavs/segment_0392.wav|You'll have options to show what.|target_voice
+wavs/segment_0393.wav|How you want the scene to be rendered.|target_voice
+wavs/segment_0394.wav|So let's just, I'm just going to show you.|target_voice
+wavs/segment_0395.wav|You shaded mode as well.|target_voice
+wavs/segment_0396.wav|So you have an idea of how the model is built.|target_voice
+wavs/segment_0397.wav|So now we're in shaded mode.|target_voice
+wavs/segment_0398.wav|And you see, these are all the surfaces.|target_voice
+wavs/segment_0399.wav|Then if we.|target_voice
+wavs/segment_0400.wav|Do this down care it again.|target_voice
+wavs/segment_0401.wav|And we go to set view right here.|target_voice
+wavs/segment_0402.wav|And over to perspective.|target_voice
+wavs/segment_0403.wav|You'll see how things are actually being built in, in 3d.|target_voice
+wavs/segment_0404.wav|Okay.|target_voice
+wavs/segment_0405.wav|So this is the actual model.|target_voice
+wavs/segment_0406.wav|And if I zoom in on one of the homes.|target_voice
+wavs/segment_0407.wav|You'll see that I've got these surfaces offset.|target_voice
+wavs/segment_0408.wav|Kind of layered.|target_voice
+wavs/segment_0409.wav|And the reason I have them like this is because then it casts shadows.|target_voice
+wavs/segment_0410.wav|To make it look a bit more photo realistic.|target_voice
+wavs/segment_0411.wav|It's a way to, you know, build a flat model, but also have it appear as if it's a three-dimensional.|target_voice
+wavs/segment_0412.wav|Okay.|target_voice
+wavs/segment_0413.wav|So then if I go back into here.|target_voice
+wavs/segment_0414.wav|And I'm going to set.|target_voice
+wavs/segment_0415.wav|The display mode to be rendered again.|target_voice
+wavs/segment_0416.wav|So here's the rendered mode.|target_voice
+wavs/segment_0417.wav|And then again, in the dropdown, I'm going to go to set view.|target_voice
+wavs/segment_0418.wav|And go back to front view.|target_voice
+wavs/segment_0419.wav|All right.|target_voice
+wavs/segment_0420.wav|So this is where we were when we opened up the model.|target_voice
+wavs/segment_0421.wav|All right.|target_voice
+wavs/segment_0422.wav|So now how do we change materials?|target_voice
+wavs/segment_0423.wav|Well, what we want to do is.|target_voice
+wavs/segment_0424.wav|Open up the layers panel.|target_voice
+wavs/segment_0425.wav|And in Rhino, the way I use it is I use the command line up here to just type in the command rather than the toolbars.|target_voice
+wavs/segment_0426.wav|So I can just type in layer.|target_voice
+wavs/segment_0427.wav|Enter.|target_voice
+wavs/segment_0428.wav|And it's going to bring up the layer panel.|target_voice
+wavs/segment_0429.wav|Another way to do that is to go up top to these toolbars and click on panels.|target_voice
+wavs/segment_0430.wav|And come down to layer right here.|target_voice
+wavs/segment_0431.wav|And select layer.|target_voice
+wavs/segment_0432.wav|So both layers.|target_voice
+wavs/segment_0433.wav|So both of those ways work.|target_voice
+wavs/segment_0434.wav|It's just quicker to just type layer and press enter.|target_voice
+wavs/segment_0435.wav|All right.|target_voice
+wavs/segment_0436.wav|So you're going to see all of these layers in here.|target_voice
+wavs/segment_0437.wav|All right.|target_voice
+wavs/segment_0438.wav|The layers are separated because each of the layers has a different material.|target_voice
+wavs/segment_0439.wav|All right.|target_voice
+wavs/segment_0440.wav|So if we want to change the board and batten material, I'm going to find the board and batten layer, which is right here.|target_voice
+wavs/segment_0441.wav|And then scroll over to the material column.|target_voice
+wavs/segment_0442.wav|So these are all of the materials.|target_voice
+wavs/segment_0443.wav|Now I'm going to go back to the material column.|target_voice
+wavs/segment_0444.wav|Now I'm going to click right here.|target_voice
+wavs/segment_0445.wav|Just left click on this.|target_voice
+wavs/segment_0446.wav|And it's going to bring up the material selector.|target_voice
+wavs/segment_0447.wav|So once this is up, I'm going to click here for the drop down menu.|target_voice
+wavs/segment_0448.wav|And then I can scroll down to the other board and batten materials.|target_voice
+wavs/segment_0449.wav|So right now it's set to glacier white.|target_voice
+wavs/segment_0450.wav|But if I wanted this to be, let's say, Riviera Dusk, I just click on that.|target_voice
+wavs/segment_0451.wav|Click OK.|target_voice
+wavs/segment_0452.wav|Now it's going to bring up the material selector.|target_voice
+wavs/segment_0453.wav|And then I can see that all of the board and batten is going to be Riviera Dusk.|target_voice
+wavs/segment_0454.wav|And right now I'm panning using the right click button.|target_voice
+wavs/segment_0455.wav|I should have said that earlier.|target_voice
+wavs/segment_0456.wav|But that's how I'm kind of getting around.|target_voice
+wavs/segment_0457.wav|I'm sure if you've got the software installed, you've probably already figured that out.|target_voice
+wavs/segment_0458.wav|So right click pans.|target_voice
+wavs/segment_0459.wav|Then let's say I want the vinyl siding to be a different color.|target_voice
+wavs/segment_0460.wav|Then I'll find the vinyl siding layer, which is right here.|target_voice
+wavs/segment_0461.wav|Go over to the material column.|target_voice
+wavs/segment_0462.wav|Click on the material.|target_voice
+wavs/segment_0463.wav|And click on the drop down.|target_voice
+wavs/segment_0464.wav|And all the way down to the bottom of the material selector, you have the vinyl siding options.|target_voice
+wavs/segment_0465.wav|So let's do mountain fern for the siding.|target_voice
+wavs/segment_0466.wav|And then OK.|target_voice
+wavs/segment_0467.wav|Now everything's going to be mountain fern.|target_voice
+wavs/segment_0468.wav|Then we can do the same thing with the garage door.|target_voice
+wavs/segment_0469.wav|And the garage door.|target_voice
+wavs/segment_0470.wav|And the front door.|target_voice
+wavs/segment_0471.wav|So the garage door.|target_voice
+wavs/segment_0472.wav|Click on this.|target_voice
+wavs/segment_0473.wav|Right now it's garage door extra white.|target_voice
+wavs/segment_0474.wav|If I go down, I can scroll down to let's say garage door cornwall slate.|target_voice
+wavs/segment_0475.wav|Then OK.|target_voice
+wavs/segment_0476.wav|And then we'll do the same thing with the doors.|target_voice
+wavs/segment_0477.wav|The door layer here.|target_voice
+wavs/segment_0478.wav|Right now it's extra white.|target_voice
+wavs/segment_0479.wav|But I'm going to go down to the layer called front door cornwall slate.|target_voice
+wavs/segment_0480.wav|And then click OK.|target_voice
+wavs/segment_0481.wav|And then we have the option to change the trim color as well.|target_voice
+wavs/segment_0482.wav|So that's going to be on trim layer.|target_voice
+wavs/segment_0483.wav|Click on this.|target_voice
+wavs/segment_0484.wav|Drop down to the options.|target_voice
+wavs/segment_0485.wav|And we've got trim black, trim medium gray, and trim white.|target_voice
+wavs/segment_0486.wav|Let's set it to medium gray.|target_voice
+wavs/segment_0487.wav|And that's how you do it.|target_voice
+wavs/segment_0488.wav|So let me back out of this here.|target_voice
+wavs/segment_0489.wav|Keep the doors white.|target_voice
+wavs/segment_0490.wav|And what other options do we have?|target_voice
+wavs/segment_0491.wav|Oh, the roof color you can change too.|target_voice
+wavs/segment_0492.wav|So that's on the roof right now.|target_voice
+wavs/segment_0493.wav|It's set to Williamsburg gray.|target_voice
+wavs/segment_0494.wav|But you can also put it at driftwood.|target_voice
+wavs/segment_0495.wav|But I'll bring it back to Williamsburg for now.|target_voice
+wavs/segment_0496.wav|And then we'll go down to the roof.|target_voice
+wavs/segment_0497.wav|And then we'll go down to the roof.|target_voice
+wavs/segment_0498.wav|And I'll bring it back to Williamsburg for now.|target_voice
+wavs/segment_0499.wav|So that should be it.|target_voice
+wavs/segment_0500.wav|Let me know if you have any questions.|target_voice
+wavs/segment_0501.wav|It's pretty straightforward.|target_voice
+wavs/segment_0502.wav|But then again, I've been using the software for 10 years.|target_voice
+wavs/segment_0503.wav|So I'm comfortable with it.|target_voice
+wavs/segment_0504.wav|So understand that it can seem daunting when you're first jumping into a piece of software.|target_voice
+wavs/segment_0505.wav|But just getting the materials changed should be relatively easy.|target_voice
+wavs/segment_0506.wav|And should be relatively straightforward.|target_voice
+wavs/segment_0507.wav|All right.|target_voice
+wavs/segment_0508.wav|Thanks.|target_voice
+wavs/segment_0510.wav|This is a quick overview of the Paraplane render assets.|target_voice
+wavs/segment_0511.wav|So we've got three different named views, mall, auditorium, and hallway.|target_voice
+wavs/segment_0512.wav|And then you'll see if you look over the layers that the auditorium has four different features.|target_voice
+wavs/segment_0513.wav|The hallway has four.|target_voice
+wavs/segment_0514.wav|And then the mall has just this one.|target_voice
+wavs/segment_0515.wav|So the mall is Delaney.|target_voice
+wavs/segment_0516.wav|And then if we switch over to auditorium, you'll see we've got wave one, wave two, and then Gucci one and Gucci two.|target_voice
+wavs/segment_0517.wav|So the difference between wave one and wave two is that wave number two has variation on the stroke.|target_voice
+wavs/segment_0518.wav|And so as the spacing gets tighter between the panel edges, the stroke also gets tighter.|target_voice
+wavs/segment_0519.wav|And then the panel edges.|target_voice
+wavs/segment_0520.wav|And then the panel edges.|target_voice
+wavs/segment_0521.wav|And then the panel edges.|target_voice
+wavs/segment_0522.wav|And then the panel edges.|target_voice
+wavs/segment_0523.wav|And then the panel edges.|target_voice
+wavs/segment_0524.wav|Then we've got Gucci one.|target_voice
+wavs/segment_0525.wav|It's called Gucci because Paul, you had said that.|target_voice
+wavs/segment_0526.wav|The pattern kind of looked like a Gucci pattern.|target_voice
+wavs/segment_0527.wav|And then Gucci two is just rotated 180.|target_voice
+wavs/segment_0528.wav|Then over to hallway.|target_voice
+wavs/segment_0529.wav|We've got this first iteration.|target_voice
+wavs/segment_0530.wav|So hallway one.|target_voice
+wavs/segment_0531.wav|Then hallway two.|target_voice
+wavs/segment_0532.wav|Hallway three.|target_voice
+wavs/segment_0533.wav|Hallway four.|target_voice
+wavs/segment_0534.wav|And then if you drop down the layers, so we have panels and the PET panel in the sub layers.|target_voice
+wavs/segment_0535.wav|And that should be it. Thanks.|target_voice
+wavs/segment_0536.wav|Hey, Jan, just wanted to run through these definitions with you quick.|target_voice
+wavs/segment_0537.wav|I'll show you how the inputs work and what all the parameters do.|target_voice
+wavs/segment_0538.wav|So let's first start off by I'm going to disable the kangaroo solver.|target_voice
+wavs/segment_0539.wav|And what I'll do is run through the bug that you were finding in the previous version.|target_voice
+wavs/segment_0540.wav|So essentially what it is, let me turn off the intersections as well.|target_voice
+wavs/segment_0541.wav|Okay, so you know how we have this billowing effect,|target_voice
+wavs/segment_0542.wav|where it's essentially taking the...|target_voice
+wavs/segment_0543.wav|the middle node of the arc and increasing the Z value.|target_voice
+wavs/segment_0544.wav|So what happens is if this gets to too high of a value,|target_voice
+wavs/segment_0545.wav|let's put it here, bring it up.|target_voice
+wavs/segment_0546.wav|What you'll see is that the billow, the arc that's being created,|target_voice
+wavs/segment_0547.wav|is actually exceeding the ceiling of the cones.|target_voice
+wavs/segment_0549.wav|is we get multiple intersections and it sort of just breaks everything.|target_voice
+wavs/segment_0550.wav|So what I have this set to is a lower number.|target_voice
+wavs/segment_0551.wav|I've got the limit set to 1500.|target_voice
+wavs/segment_0552.wav|And it may have to be lower than that.|target_voice
+wavs/segment_0553.wav|I haven't tested all of the possible variables,|target_voice
+wavs/segment_0554.wav|but what we want to make sure of is that this doesn't exceed the top,|target_voice
+wavs/segment_0555.wav|so we don't get multiple intersections.|target_voice
+wavs/segment_0556.wav|So given these values, I can turn the intersection back on.|target_voice
+wavs/segment_0557.wav|And it takes just a moment for it to calculate.|target_voice
+wavs/segment_0558.wav|All right, and you'll see we have straight pipes|target_voice
+wavs/segment_0559.wav|with doubly curved surfaces.|target_voice
+wavs/segment_0560.wav|So we can see that there are some surfaces|target_voice
+wavs/segment_0561.wav|that are being created between the intersections and the pipes.|target_voice
+wavs/segment_0562.wav|So I changed this up a little bit.|target_voice
+wavs/segment_0563.wav|I actually separated this whole thing out separately|target_voice
+wavs/segment_0564.wav|so that each cone has all of its own surfaces in one cluster.|target_voice
+wavs/segment_0565.wav|So then this cluster, if you double-click inside of that,|target_voice
+wavs/segment_0566.wav|this is all the functionality that's creating the intersections|target_voice
+wavs/segment_0567.wav|and those resulting surfaces.|target_voice
+wavs/segment_0568.wav|And then when you're done, you can just...|target_voice
+wavs/segment_0569.wav|or after you click into a cluster, the way to get out of it is just go File,|target_voice
+wavs/segment_0570.wav|and then Save and Return.|target_voice
+wavs/segment_0571.wav|And it'll save whatever changes you made to the cluster|target_voice
+wavs/segment_0572.wav|and return back to the original document.|target_voice
+wavs/segment_0573.wav|And another way to do it, if you're in the cluster,|target_voice
+wavs/segment_0574.wav|you can go up here and then just close the cluster|target_voice
+wavs/segment_0575.wav|if you don't want to see the changes.|target_voice
+wavs/segment_0576.wav|Close the cluster and you get back to the main document.|target_voice
+wavs/segment_0577.wav|And then one thing to note is that if you change this cluster,|target_voice
+wavs/segment_0578.wav|it's going to also change all of these because they're linked.|target_voice
+wavs/segment_0579.wav|It's basically a copy of this instance of one of these instances.|target_voice
+wavs/segment_0580.wav|And then I also used a cluster over here in the Kangaroo solver.|target_voice
+wavs/segment_0581.wav|So I'll jump inside here.|target_voice
+wavs/segment_0582.wav|And this is the Kangaroo solver.|target_voice
+wavs/segment_0583.wav|The way that it works is it has a main component right here.|target_voice
+wavs/segment_0584.wav|This is the solver.|target_voice
+wavs/segment_0585.wav|And then you have all of these goals that you're trying to set.|target_voice
+wavs/segment_0586.wav|So this one is just telling the solver that you're going to preview the mesh.|target_voice
+wavs/segment_0587.wav|This one's going to smooth the mesh.|target_voice
+wavs/segment_0588.wav|This one is a constraint for the...|target_voice
+wavs/segment_0589.wav|the edges of the mesh,|target_voice
+wavs/segment_0590.wav|basically the triangles that are creating the mesh.|target_voice
+wavs/segment_0591.wav|And then this is a component that keeps all of the points at the seaplane.|target_voice
+wavs/segment_0592.wav|This one is an anchor around the perimeter|target_voice
+wavs/segment_0593.wav|so that when you give pressure to the surface,|target_voice
+wavs/segment_0594.wav|it doesn't escape the perimeter.|target_voice
+wavs/segment_0595.wav|And then this is the actual pressure that we're adding to inflate the surface.|target_voice
+wavs/segment_0597.wav|And I don't want to make any changes,|target_voice
+wavs/segment_0598.wav|so I'll just say no, I don't want to save it.|target_voice
+wavs/segment_0599.wav|And then we're back to the main piece here.|target_voice
+wavs/segment_0600.wav|Okay, so what I'm going to do is open up the...|target_voice
+wavs/segment_0601.wav|just the simplified inflation script,|target_voice
+wavs/segment_0602.wav|just to show you how it works,|target_voice
+wavs/segment_0603.wav|then I'll jump back into the other one.|target_voice
+wavs/segment_0604.wav|So this is where I started.|target_voice
+wavs/segment_0605.wav|I made a definition that essentially takes an interpolated curve,|target_voice
+wavs/segment_0606.wav|applies a mesh to it,|target_voice
+wavs/segment_0607.wav|and then allows me to inflate it based on the same constraints that I just showed you before.|target_voice
+wavs/segment_0608.wav|So what we want to do to start the simulation is|target_voice
+wavs/segment_0609.wav|we want to make sure that the pressure is set to zero, first of all.|target_voice
+wavs/segment_0610.wav|And then we'll do a reset.|target_voice
+wavs/segment_0611.wav|And then we can increase the pressure.|target_voice
+wavs/segment_0612.wav|You can see it's almost like it's breathing as I'm sliding.|target_voice
+wavs/segment_0613.wav|Now the other thing you can do is you can select the curve and edit it.|target_voice
+wavs/segment_0614.wav|But what you'll notice is that when I'm doing that,|target_voice
+wavs/segment_0615.wav|there's some artifacting happening over here.|target_voice
+wavs/segment_0616.wav|And what you have to do to get rid of that is you just reset that.|target_voice
+wavs/segment_0617.wav|You reset the solver after you change the input.|target_voice
+wavs/segment_0618.wav|So I've changed the input and I reset the solver.|target_voice
+wavs/segment_0619.wav|And now that artifacting will go away.|target_voice
+wavs/segment_0620.wav|And what you can also do is if I create a new interpolated curve like that,|target_voice
+wavs/segment_0621.wav|just select it and then set one curve.|target_voice
+wavs/segment_0622.wav|Again, we have artifacting.|target_voice
+wavs/segment_0623.wav|What I'm going to do is set this back to zero, reset the solver,|target_voice
+wavs/segment_0624.wav|and then I can increase and decrease pressure.|target_voice
+wavs/segment_0625.wav|Now you'll see this one is pretty interactive and I'm seeing live updates.|target_voice
+wavs/segment_0626.wav|It's a relatively lightweight mesh, but with this other definition,|target_voice
+wavs/segment_0627.wav|there's so many intersections and other things going on|target_voice
+wavs/segment_0628.wav|that it's not quite as responsive interaction, I suppose.|target_voice
+wavs/segment_0629.wav|So what we'll do here is I'm going to turn on the solver.|target_voice
+wavs/segment_0630.wav|It's essentially a Boolean|target_voice
+wavs/segment_0631.wav|telling the solver to turn on.|target_voice
+wavs/segment_0632.wav|So we'll turn that on.|target_voice
+wavs/segment_0633.wav|And what I should have done is set this to zero first before I turn it on,|target_voice
+wavs/segment_0634.wav|but it seemed to work okay.|target_voice
+wavs/segment_0635.wav|Now I'm going to bring this to zero.|target_voice
+wavs/segment_0636.wav|Okay, and then I'm going to reset.|target_voice
+wavs/segment_0637.wav|It's just a button right here.|target_voice
+wavs/segment_0638.wav|So I'm going to press the button and then I'm going to press the button again.|target_voice
+wavs/segment_0639.wav|And then I'm going to press the button again.|target_voice
+wavs/segment_0640.wav|And then I'm going to press the button again.|target_voice
+wavs/segment_0641.wav|And then I'm going to press the button again.|target_voice
+wavs/segment_0642.wav|Okay, so now we're back at zero.|target_voice
+wavs/segment_0643.wav|We've got a flat mesh.|target_voice
+wavs/segment_0644.wav|And if I increase this to, let's say, 15,|target_voice
+wavs/segment_0645.wav|you're going to notice that it's actually a bit lumpy.|target_voice
+wavs/segment_0646.wav|And the reason is because Kangaroo is an iterative solver.|target_voice
+wavs/segment_0647.wav|So it's going through this smoothing calculation.|target_voice
+wavs/segment_0648.wav|And the more times you run it through the calculation,|target_voice
+wavs/segment_0649.wav|the smoother it's actually going to get.|target_voice
+wavs/segment_0650.wav|So I'll increase this then to, let's say, 17.|target_voice
+wavs/segment_0651.wav|And let's say 20.|target_voice
+wavs/segment_0652.wav|And it's kind of like you're stretching out the surface.|target_voice
+wavs/segment_0653.wav|And then you can deflate it a bit back down to 15,|target_voice
+wavs/segment_0654.wav|and it'll be nice and smooth.|target_voice
+wavs/segment_0657.wav|Which is about 10 percent.|target_voice
+wavs/segment_0658.wav|A little mache.|target_voice
+wavs/segment_0659.wav|All right, so that's looking pretty good.|target_voice
+wavs/segment_0660.wav|And, of course, you can bring this down to|target_voice
+wavs/segment_0661.wav|whatever you feel like will match the aesthetic|target_voice
+wavs/segment_0662.wav|that you're looking for.|target_voice
+wavs/segment_0663.wav|currently set to global inflation, which means that this red box right here is going to control|target_voice
+wavs/segment_0664.wav|the inflation of all of these.|target_voice
+wavs/segment_0665.wav|Now, however, if you want to have individual inflation, what we'll do is, again, we'll|target_voice
+wavs/segment_0666.wav|bring this back to zero.|target_voice
+wavs/segment_0667.wav|And I'm going to reset the solver right here.|target_voice
+wavs/segment_0668.wav|All right, now we're back to flat mesh.|target_voice
+wavs/segment_0669.wav|And I'm going to change this to individual inflation.|target_voice
+wavs/segment_0670.wav|So now the inflation of these is going to be determined by this individual inflation.|target_voice
+wavs/segment_0671.wav|And again, I'm going to release individual inputs over here.|target_voice
+wavs/segment_0672.wav|So this top left cone will be controlled right here, and it works the same.|target_voice
+wavs/segment_0673.wav|I've got a reset button and an inflation.|target_voice
+wavs/segment_0674.wav|So let's put this one up to 15.|target_voice
+wavs/segment_0675.wav|And again, you'll see it's a bit lumpy.|target_voice
+wavs/segment_0676.wav|We'll jump this to 20.|target_voice
+wavs/segment_0677.wav|Actually, let's step up to 18, then 20.|target_voice
+wavs/segment_0680.wav|And again, you'll see it's a bit lumpy.|target_voice
+wavs/segment_0681.wav|And we'll sort of back it off, back on down to 15 or 12 or something.|target_voice
+wavs/segment_0682.wav|And you'll see it's running quite a bit quicker because it's not actually trying to solve|target_voice
+wavs/segment_0683.wav|for all 8 of these.|target_voice
+wavs/segment_0684.wav|So that should do it.|target_voice
+wavs/segment_0685.wav|I think that covers just about everything.|target_voice
+wavs/segment_0686.wav|If you have any questions, just|target_voice
+wavs/segment_0687.wav|send me an email and we'll go from there.|target_voice

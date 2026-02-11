@@ -1,0 +1,689 @@
+0.00|6.48|Hey Jan, just wanted to run through these definitions with you quick. I'll show you
+6.48|14.92|how the inputs work and what all the parameters do. So let's first start off by, I'm going to
+14.92|24.66|disable the kangaroo solver and what I'll do is run through the bug that you were finding in the
+24.66|35.28|previous version. So essentially what it is, let me turn off the intersections as well. Okay,
+35.28|42.04|so you know how we have this billowing effect where it's essentially taking the middle node
+42.04|53.76|of the arc and increasing the Z value. So what happens is if this gets too high of a value,
+53.76|54.64|let's put it
+54.64|64.12|here, bring it up. What you'll see is that the billow, the arc that's being created is actually
+64.12|73.10|exceeding the ceiling of the cones. And so what happens is we get multiple intersections and it
+73.10|80.64|sort of just breaks everything. So what I have this set to is a lower number. I've got the limit
+80.64|83.44|set to 1500.
+84.64|90.76|And it may have to be lower than that. I haven't tested all of the possible variables, but what we
+90.76|95.92|want to make sure of is that this doesn't exceed the top. So we don't get multiple intersections.
+95.92|104.56|So given these values, I can turn the intersection back on and it takes just a moment for it to
+104.56|105.64|calculate.
+105.64|106.64|Okay.
+106.64|107.64|So I'm going to go ahead and run this.
+107.64|108.64|Okay.
+108.64|109.64|So I'm going to go ahead and run this.
+109.64|110.64|Okay.
+110.64|111.64|So I'm going to go ahead and run this.
+111.64|112.64|Okay.
+112.64|113.64|Okay.
+113.64|114.64|Okay.
+114.64|115.64|Okay.
+115.64|116.64|Okay.
+116.64|117.64|Okay.
+117.64|118.64|Okay.
+118.64|119.64|Okay.
+119.64|120.64|Alright.
+120.64|134.72|And you'll see we have straight pipes with doubly curved surfaces that are being created between the
+134.72|138.80|intersections and the pipes.
+138.80|141.48|So I changed this up a little bit.
+141.48|143.06|I actually,
+143.06|143.64|I separated this when I made my call.
+143.64|152.84|these this whole thing out separately so that each cone has all of its own surfaces in in one cluster
+154.36|161.32|so then this cluster if you double click inside of that this is all the functionality that's that's
+161.32|169.16|creating the the intersections and those resulting surfaces and then when you're done you can just
+169.16|174.92|or after you click into a cluster the way to get out of it is just go file and then save and return
+174.92|184.12|and it'll save whatever changes you made to the cluster and return back to the original document
+190.20|196.04|and another way to do it if you're in the cluster you can go up here and then just
+196.04|198.92|close the cluster if there are if you don't want to see the changes
+199.96|204.44|close the cluster and you get back to the main document and then one thing to note is that if
+204.44|209.88|you change this cluster it's going to also change all of these because they're they're linked it's
+209.88|217.08|basically a copy of the of this instance of one of these instances and then i also used a cluster
+217.08|225.16|over here in the kangaroo solver so i'll jump inside here and this is the the kangaroo solver
+225.16|229.08|the way that that it works is it has a a main component
+229.96|238.52|right here this is the solver and then you have all of these uh these goals that you're trying to
+238.52|243.40|try to set so this one is just telling the solver that you're you're going to preview the mesh
+243.40|249.88|this one's going to smooth the mesh this one is a constraint for the the
+251.08|258.84|the edges of of the mesh basically the triangles that are you know creating the mesh and then this
+259.16|267.40|is a component that keeps all of the points at the seaplane this one is an anchor around the
+267.40|279.00|perimeter so that the when you give pressure to the um to the surface it doesn't escape the the
+279.00|284.76|perimeter and then this is the actual pressure that we're adding to to inflate the surface
+289.80|293.16|whether you need to рoom in a dom formal or ufo type way to do that
+297.00|309.16|you can customize a little bit more about the juxtaposition and the
+309.64|315.00|whateverxtans and friction and the so a really interesting way to do this is when you open up
+315.00|317.90|a spacer it starts with three places so the first one is in here that we're notinnflation
+317.90|318.68|way so this is where this is taking place at the first place
+318.68|326.12|that essentially takes a interpolated curve, applies a mesh to it, and then allows me to
+326.12|331.32|inflate it based on the same constraints that I just showed you before. So what we want to do
+331.32|335.72|to start the simulation is we want to make sure that the pressure is set to zero,
+335.72|338.76|first of all, and then we'll do a reset.
+341.48|345.80|And then we can increase the pressure. You can see it's almost like it's breathing
+345.80|351.72|as I'm sliding. Now the other thing you can do is you can select the curve
+353.96|360.52|and edit it. But what you'll notice is that when I'm doing that there's some artifacting happening
+360.52|367.80|over here. And what you have to do to get rid of that is you just reset the solver after you change
+367.80|372.76|the input. So I've changed the input and I reset the solver and now that artifacting will go away.
+373.40|375.56|And what you can also do is if I
+375.80|387.40|create a new interpolated curve like that, just select it and then set one curve. Again,
+387.40|396.36|we have artifacting. What I'm going to do is set this back to zero, reset the solver, and then
+397.16|403.24|I can increase and decrease pressure. Now you see this one is pretty interactive and it's, you know,
+403.24|405.72|I'm seeing live updates. It's a really
+405.80|411.56|relatively lightweight mesh. But with this other definition, there's so many intersections and
+411.56|419.88|other things going on that it's not quite as a responsive interaction, I suppose.
+419.88|426.04|So what we'll do here is I'm going to turn on the solver. It's essentially a boolean that is
+426.76|433.00|telling the solver to turn on. So we'll turn that on.
+435.80|439.48|And what I should have done is set this to zero first before I turn it on but it seemed
+439.48|444.04|to work. Work okay now. I'm going to bring this to zero.
+451.16|456.04|Okay, and then I'm going to reset. It's just a button right here.
+465.00|465.78|Okay, so now we have. I
+465.78|477.86|Now we're back at zero, we've got a flat mesh, and if I increase this to let's say 15, you're
+477.86|481.84|going to notice that it's actually a bit lumpy.
+481.84|489.78|And the reason is because Kangaroo is an iterative solver, so it's going through this smoothing
+489.78|491.28|calculation.
+491.28|494.68|And the more times you run it through the calculation, the smoother it's actually going
+494.68|495.68|to get.
+495.68|505.92|So I'll increase this then to let's say 17.
+505.92|508.76|And let's say 20.
+508.76|512.14|It's kind of like you're stretching out the surface and then you can deflate it a bit
+512.14|520.52|back down to 15 and it'll be nice and smooth.
+520.52|524.18|19.
+524.18|524.66|20.
+524.68|525.68|21.
+525.68|526.68|22.
+526.68|527.68|23.
+527.68|528.68|24.
+528.68|529.68|25.
+529.68|530.68|26.
+530.68|531.68|27.
+531.68|532.68|28.
+532.68|533.68|29.
+533.68|534.68|30.
+534.68|535.68|31.
+535.68|536.68|32.
+536.68|537.68|33.
+537.68|538.68|34.
+538.68|539.68|35.
+539.68|540.68|36.
+540.68|541.68|37.
+541.68|542.68|38.
+542.68|543.68|39.
+543.68|544.68|40.
+544.68|545.68|41.
+545.68|546.68|42.
+546.68|547.68|43.
+547.68|548.68|44.
+548.68|549.68|45.
+549.68|550.68|46.
+550.68|551.68|47.
+551.68|552.68|48.
+552.68|553.68|49.
+553.68|554.68|50.
+554.68|555.68|51.
+555.68|556.68|52.
+556.68|557.68|53.
+557.68|558.68|54.
+558.68|559.68|55.
+559.68|560.68|56.
+560.68|561.68|57.
+561.68|562.68|58.
+562.68|563.68|59.
+563.68|564.68|60.
+564.68|565.68|61.
+565.68|566.68|62.
+566.68|567.68|63.
+567.68|568.68|64.
+568.68|569.68|65.
+569.68|570.68|67.
+570.68|571.68|68.
+571.68|572.68|69.
+572.68|573.68|70.
+573.68|574.68|71.
+574.68|575.68|72.
+575.68|576.68|73.
+576.68|577.68|74.
+577.68|578.68|75.
+578.68|579.68|76.
+579.68|580.68|78.
+580.68|581.68|79.
+581.68|582.68|80.
+582.68|583.68|90.
+583.68|584.68|90.
+584.68|585.68|91.
+585.68|586.68|92.
+586.68|587.68|Attach.
+587.68|588.68|95.
+588.68|589.68|98.
+589.68|590.68|90.
+590.68|591.68|92.
+591.68|592.68|93.
+592.68|593.68|94.
+593.68|594.68|94.
+594.68|595.68|95.
+595.68|596.68|96.
+596.68|597.68|97.
+597.68|598.68|96.
+598.68|599.68|97.
+599.68|600.68|98.
+600.68|601.68|05.
+601.68|602.68|05.
+602.68|603.68|05.
+603.68|604.68|06.
+604.68|605.68|06.
+605.68|606.68|07.
+606.68|607.68|08.
+607.68|608.68|09.
+608.68|609.68|010.
+609.68|610.68|09.
+610.68|611.68|10.
+611.68|612.68|20.
+612.68|613.68|20.
+613.68|617.68|and I'm going to change this to individual inflation.
+627.90|631.02|So now the inflation of these is going to be determined by
+631.02|633.36|this individual
+633.36|639.74|inputs over here. So this top left cone
+639.74|643.92|will be controlled right here and it works the same.
+643.92|647.70|I've got a reset button and an inflation. So let's put this one up to 15.
+650.82|653.72|And again you'll see it's a bit lumpy. We'll jump this to 20.
+654.54|657.12|Actually let's step up to 18 then 20.
+663.74|668.10|And then we'll sort of back it off back on down to 15 or 12
+668.10|668.54|or something.
+669.74|673.08|And you'll see it's running quite a bit quicker because
+673.08|675.74|it's not actually trying to solve for all eight of these.
+678.78|679.22|Oops.
+694.14|696.60|So that should do it. I think that
+696.60|698.98|covers just about everything.
+699.74|705.62|If you have any questions just send me an email and we'll go from there.
+705.62|706.12|Thanks.
+708.78|713.32|Hey Kevin this is a quick video walkthrough showing the elevation
+713.32|719.12|renders. I just wanted to walk through how it's set up and showing you
+719.12|721.66|the adjustments that we can make on the fly.
+721.66|726.66|So I've got all the materials and all the swatches pulled into the model
+727.16|729.58|so that when I draw the remaining.
+729.74|734.74|Homes that it'll be easy to just apply these textures as those models are complete.
+734.74|740.86|So you can see here the vinyl siding is currently set up to Tuscan clay and it's relatively easy
+740.86|747.86|if I wanted to change it to let's say sterling gray for instance and then the trim and the board
+747.86|754.70|and batten and the roof and then the garage door and front door also have all the swatches
+754.70|756.78|complete and then the floor is done.
+756.78|758.70|So that's pretty much it.
+758.70|759.74|So that's pretty much it.
+759.74|760.74|So that's pretty much it.
+760.74|766.74|So I can change those on the fly so you'll see that right now the garage door is I believe extra white
+766.74|770.74|and here I can change it to something else.
+770.74|779.74|And so then once those are all dialed in what I do is I export the image into Photoshop and you can see here
+779.74|784.74|I've got a pretty generic foreground that can be tweaked if you if you'd like me to.
+784.74|787.74|And then we can add vegetation if needed as well.
+787.74|788.74|And then we can add vegetation if needed as well.
+788.74|789.74|And then we can add vegetation if needed as well.
+789.74|791.74|So let me know what you think from here.
+791.74|792.74|So let me know what you think from here.
+792.74|800.74|The adjustments should be relatively easy to make seeing as the bones are kind of set up for the elevations.
+800.74|801.74|Hope that helps.
+801.74|802.74|Thanks.
+802.74|803.74|Bye.
+803.74|813.74|This is a walkthrough video on how to use Lesson 34 Version 2 definition.
+813.74|816.74|All right.
+816.74|817.74|So.
+817.74|818.74|All right.
+818.74|820.74|So.
+820.74|822.74|We have, let me hide this.
+822.74|823.74|Okay.
+823.74|831.74|We've got two ribs, the north and south.
+831.74|836.74|We've got points on the inside edge.
+836.74|841.74|Here and here and here.
+841.74|842.74|All right.
+842.74|847.74|So let's start with doing what I'm calling a left rib as you're facing it.
+848.74|857.20|Set one b-rep, then we're going to select these points.
+857.20|863.58|Set multiple.
+863.58|869.34|Right rib points.
+869.34|872.64|Set multiple.
+872.64|875.98|And it's automatically going to know which one is one and which one is two because of
+875.98|879.70|the it sorts by z value.
+879.70|884.56|Then what we're going to do is select all the clips.
+884.56|888.24|So do that.
+888.24|889.24|Set multiple.
+889.24|897.60|And then if we go into top view, this is the unroll.
+897.60|905.26|And you see if we go over to clip number one, or the first one here, it's called clip number
+905.26|905.76|one.
+905.76|906.76|I'll call it clip number one.
+906.76|914.44|But if we grab this one, go into properties and change it to clip two.
+914.44|917.96|And then rerun the definition.
+917.96|920.98|That'll change to clip two.
+920.98|923.88|So let's set this back to one.
+923.88|927.60|There we go.
+927.60|929.88|Rerun it.
+929.88|930.80|Okay.
+930.80|935.28|So from here, we're going to go down to.
+935.28|936.28|FAB bake.
+936.28|942.64|And all the fab geometry is going to bake.
+942.64|948.74|And if you want the dimensions to bake out, we're going to go into the active layer.
+948.74|952.90|Let's say the dim layer.
+952.90|958.80|And then we'll go over to where the dimensions are, which are over here.
+958.80|961.96|And we're just going to middle click, bake, middle click, bake, bake, and bake.
+961.96|962.96|And it's going to bake.
+962.96|963.96|And then it's going to go back down to the active layer.
+963.96|964.96|And then we're going to go into the active layer.
+964.96|965.96|And bake.
+965.96|970.60|So now we have them baked in the grasshopper.
+970.60|977.96|And then if we want these text dots to bake out as well, we'll have to do the same thing.
+977.96|981.72|So I'll just make a new layer called VOT.
+981.72|984.42|Make that the active layer.
+984.42|985.42|Middle click, bake.
+985.42|990.64|And now we'll have the text dots in there as well.
+990.64|994.96|And what you can do if you want to try to verify that things are correct.
+994.96|1000.96|What I do is I'll grab this.
+1000.96|1004.96|I'll just copy it up some amount.
+1004.96|1006.96|Group it.
+1006.96|1014.20|And then move it from here over to here.
+1014.20|1018.72|And then you've got two and one.
+1018.72|1022.96|So I'm just going to roughly orient it the way it's supposed to go.
+1022.96|1024.76|There, two, one.
+1024.96|1027.96|And then if I do an orient three point.
+1027.96|1031.96|Go one, two, three.
+1031.96|1038.96|And then up here, one, two, three.
+1038.96|1045.96|And this way I can kind of verify in 3D and in 2D that everything is landing where it's supposed to.
+1045.96|1053.96|And this one looks like it, is it landing correctly?
+1053.96|1054.96|Yeah.
+1054.96|1055.96|It is.
+1055.96|1060.96|It's just I got confused because I saw this over here.
+1060.96|1065.96|But that one is correct.
+1065.96|1069.96|This one's good.
+1069.96|1075.96|So then I'll do the same with this.
+1075.96|1078.96|Just copy it up.
+1078.96|1079.96|Group.
+1079.96|1082.96|Move.
+1082.96|1083.96|Over here.
+1084.96|1091.96|And we've got the one, two.
+1091.96|1093.96|And the one, two.
+1093.96|1099.96|So you can just roughly bring it into place.
+1099.96|1101.96|Orient three points.
+1101.96|1105.96|Bam, bam, bam.
+1105.96|1111.96|And bam, bam, bam.
+1111.96|1112.96|That's looking good.
+1112.96|1114.96|That's supposed to be a quicker way to do it if you want to.
+1114.96|1118.96|It just depends on how you want to do it.
+1118.96|1124.96|You could just delete this.
+1124.96|1126.96|Just grab this.
+1126.96|1128.96|And then do an orient three point.
+1128.96|1131.96|And then set up here to copy.
+1131.96|1133.96|Set up that to yes.
+1133.96|1140.96|And then find the one and the two and then any edge.
+1140.96|1149.96|And then come over here and do one, two, and any edge.
+1149.96|1153.96|And then once it's there.
+1153.96|1155.96|Oops, I just escaped out of it.
+1155.96|1158.96|But what you can do is you can group it when it's in place.
+1158.96|1161.96|Or group it first.
+1161.96|1163.96|A million ways to skin a cat.
+1163.96|1168.96|But that one's looking good too.
+1168.96|1169.96|If you have any questions.
+1169.96|1171.96|Gimme a shout.
+1171.96|1178.96|All right, here's a quick little walkthrough of the S-wall.
+1178.96|1180.96|The 3D model.
+1180.96|1182.96|And the production files.
+1182.96|1184.96|So let's see here.
+1184.96|1188.96|First of all, the cap up here on top.
+1188.96|1190.96|And if I hide the top part.
+1190.96|1193.96|You'll see the plug that goes inside of it.
+1193.96|1197.96|Is offset a 16th of an inch in.
+1197.96|1199.96|So there's a little bit of wiggle room.
+1199.96|1202.96|When we're installing it.
+1202.96|1210.96|And then we have it reduced to three ribs total.
+1210.96|1213.96|If I select the three ribs.
+1213.96|1217.96|This is where they're located.
+1217.96|1223.96|And then taking a look at the production files.
+1223.96|1227.96|So the plank itself.
+1227.96|1229.96|It's just one part.
+1229.96|1232.96|That'll be repeated 361 times.
+1232.96|1234.96|There's 180 planks on the inside.
+1234.96|1236.96|181 on the outside.
+1236.96|1238.96|And then we have the end cap.
+1238.96|1240.96|Which there are two of them.
+1240.96|1243.96|Same exact geometry.
+1243.96|1248.96|And then up here we've got the bottom cap.
+1248.96|1253.96|So it will be this down here.
+1253.96|1255.96|And.
+1255.96|1260.96|It is split into 17 different parts.
+1260.96|1264.96|So we've got the bottom layer.
+1264.96|1266.96|That is felt.
+1266.96|1268.96|And then there's also a pen layer.
+1268.96|1269.96|And the reason the pen layer is there.
+1269.96|1271.96|Is so that when we.
+1271.96|1274.96|Cut the plug part of it.
+1274.96|1279.96|We know how to align it.
+1279.96|1281.96|And then for the top.
+1281.96|1284.96|It's just it's mirrored.
+1284.96|1286.96|Because we're, you know, we're cutting it like.
+1286.96|1287.96|Like that.
+1287.96|1289.96|Essentially.
+1289.96|1292.96|And.
+1292.96|1297.96|I have them labeled such that these are B7 for the bottoms.
+1297.96|1298.96|And.
+1298.96|1301.96|That'll be the same label for the plug portion as well.
+1301.96|1302.96|B7.
+1302.96|1304.96|And then for the top.
+1304.96|1306.96|Caps.
+1306.96|1309.96|It's T1.
+1309.96|1311.96|And.
+1311.96|1313.96|T1 for these as well.
+1314.96|1316.96|So then we've got the ribs.
+1316.96|1318.96|Kind of the same thing.
+1318.96|1319.96|Except.
+1319.96|1322.96|We don't have a top and bottom condition.
+1322.96|1324.96|These just get.
+1324.96|1326.96|Cut three times each.
+1326.96|1331.96|And there are also 17 parts.
+1331.96|1333.96|So that should do it.
+1333.96|1335.96|Let me know if you guys have.
+1335.96|1337.96|Any questions.
+1337.96|1338.96|Hey, Kevin.
+1338.96|1343.96|So this is the master model for the elevations.
+1343.96|1345.96|And I'm just going to walk through.
+1345.96|1350.96|How the model is built in where the materials and such are.
+1350.96|1357.96|So what you see on your screen right now is the front view or the elevation view.
+1357.96|1359.96|Of these models.
+1359.96|1364.96|And it is set to rendered mode.
+1364.96|1366.96|Now we can also set it to.
+1366.96|1367.96|Shaded mode.
+1367.96|1370.96|So if I, if I right click.
+1370.96|1372.96|On this, or if I just click on the down key.
+1372.96|1373.96|Over here.
+1373.96|1375.96|And so a blue piece.
+1375.96|1378.96|You'll have options to show what.
+1378.96|1380.96|How you want the scene to be rendered.
+1380.96|1382.96|So let's just, I'm just going to show you.
+1382.96|1383.96|You shaded mode as well.
+1383.96|1386.96|So you have an idea of how the model is built.
+1386.96|1388.96|So now we're in shaded mode.
+1388.96|1391.96|And you see, these are all the surfaces.
+1391.96|1393.96|Then if we.
+1393.96|1395.96|Do this down care it again.
+1395.96|1398.96|And we go to set view right here.
+1398.96|1401.96|And over to perspective.
+1401.96|1405.96|You'll see how things are actually being built in, in 3d.
+1405.96|1406.96|Okay.
+1406.96|1407.96|So this is the actual model.
+1407.96|1411.96|And if I zoom in on one of the homes.
+1411.96|1415.96|You'll see that I've got these surfaces offset.
+1415.96|1417.96|Kind of layered.
+1417.96|1421.96|And the reason I have them like this is because then it casts shadows.
+1421.96|1424.96|To make it look a bit more photo realistic.
+1424.96|1430.96|It's a way to, you know, build a flat model, but also have it appear as if it's a three-dimensional.
+1430.96|1431.96|Okay.
+1431.96|1434.96|So then if I go back into here.
+1434.96|1437.96|And I'm going to set.
+1437.96|1440.96|The display mode to be rendered again.
+1440.96|1442.96|So here's the rendered mode.
+1442.96|1446.96|And then again, in the dropdown, I'm going to go to set view.
+1446.96|1449.96|And go back to front view.
+1449.96|1450.96|All right.
+1450.96|1453.96|So this is where we were when we opened up the model.
+1453.96|1454.96|All right.
+1454.96|1456.96|So now how do we change materials?
+1456.96|1460.96|Well, what we want to do is.
+1460.96|1463.96|Open up the layers panel.
+1463.96|1471.96|And in Rhino, the way I use it is I use the command line up here to just type in the command rather than the toolbars.
+1471.96|1474.96|So I can just type in layer.
+1474.96|1475.96|Enter.
+1475.96|1477.96|And it's going to bring up the layer panel.
+1477.96|1483.96|Another way to do that is to go up top to these toolbars and click on panels.
+1483.96|1486.96|And come down to layer right here.
+1486.96|1488.96|And select layer.
+1488.96|1489.96|So both layers.
+1489.96|1492.96|So both of those ways work.
+1492.96|1496.96|It's just quicker to just type layer and press enter.
+1496.96|1497.96|All right.
+1497.96|1500.96|So you're going to see all of these layers in here.
+1500.96|1501.96|All right.
+1501.96|1505.96|The layers are separated because each of the layers has a different material.
+1505.96|1506.96|All right.
+1506.96|1512.96|So if we want to change the board and batten material, I'm going to find the board and batten layer, which is right here.
+1512.96|1515.96|And then scroll over to the material column.
+1515.96|1517.96|So these are all of the materials.
+1517.96|1518.96|Now I'm going to go back to the material column.
+1518.96|1520.96|Now I'm going to click right here.
+1520.96|1522.96|Just left click on this.
+1522.96|1527.96|And it's going to bring up the material selector.
+1527.96|1533.96|So once this is up, I'm going to click here for the drop down menu.
+1533.96|1538.96|And then I can scroll down to the other board and batten materials.
+1538.96|1540.96|So right now it's set to glacier white.
+1540.96|1545.96|But if I wanted this to be, let's say, Riviera Dusk, I just click on that.
+1545.96|1546.96|Click OK.
+1546.96|1547.96|Now it's going to bring up the material selector.
+1548.96|1554.96|And then I can see that all of the board and batten is going to be Riviera Dusk.
+1554.96|1557.96|And right now I'm panning using the right click button.
+1557.96|1559.96|I should have said that earlier.
+1559.96|1561.96|But that's how I'm kind of getting around.
+1561.96|1566.96|I'm sure if you've got the software installed, you've probably already figured that out.
+1566.96|1569.96|So right click pans.
+1569.96|1573.96|Then let's say I want the vinyl siding to be a different color.
+1573.96|1577.96|Then I'll find the vinyl siding layer, which is right here.
+1578.96|1581.96|Go over to the material column.
+1581.96|1583.96|Click on the material.
+1583.96|1585.96|And click on the drop down.
+1585.96|1591.96|And all the way down to the bottom of the material selector, you have the vinyl siding options.
+1591.96|1598.96|So let's do mountain fern for the siding.
+1598.96|1600.96|And then OK.
+1600.96|1603.96|Now everything's going to be mountain fern.
+1603.96|1606.96|Then we can do the same thing with the garage door.
+1606.96|1607.96|And the garage door.
+1607.96|1609.96|And the front door.
+1609.96|1611.96|So the garage door.
+1611.96|1613.96|Click on this.
+1613.96|1615.96|Right now it's garage door extra white.
+1615.96|1623.96|If I go down, I can scroll down to let's say garage door cornwall slate.
+1623.96|1625.96|Then OK.
+1625.96|1628.96|And then we'll do the same thing with the doors.
+1628.96|1630.96|The door layer here.
+1630.96|1632.96|Right now it's extra white.
+1632.96|1635.96|But I'm going to go down to the layer called front door cornwall slate.
+1635.96|1636.96|And then click OK.
+1636.96|1647.96|And then we have the option to change the trim color as well.
+1647.96|1650.96|So that's going to be on trim layer.
+1650.96|1652.96|Click on this.
+1652.96|1654.96|Drop down to the options.
+1654.96|1659.96|And we've got trim black, trim medium gray, and trim white.
+1659.96|1661.96|Let's set it to medium gray.
+1661.96|1664.96|And that's how you do it.
+1664.96|1667.96|So let me back out of this here.
+1667.96|1669.96|Keep the doors white.
+1669.96|1672.96|And what other options do we have?
+1672.96|1675.96|Oh, the roof color you can change too.
+1675.96|1678.96|So that's on the roof right now.
+1678.96|1680.96|It's set to Williamsburg gray.
+1680.96|1685.96|But you can also put it at driftwood.
+1685.96|1688.96|But I'll bring it back to Williamsburg for now.
+1688.96|1690.96|And then we'll go down to the roof.
+1690.96|1692.96|And then we'll go down to the roof.
+1692.96|1695.96|And I'll bring it back to Williamsburg for now.
+1695.96|1697.96|So that should be it.
+1697.96|1701.96|Let me know if you have any questions.
+1701.96|1704.96|It's pretty straightforward.
+1704.96|1706.96|But then again, I've been using the software for 10 years.
+1706.96|1710.96|So I'm comfortable with it.
+1710.96|1715.96|So understand that it can seem daunting when you're first jumping into a piece of software.
+1715.96|1721.96|But just getting the materials changed should be relatively easy.
+1721.96|1723.96|And should be relatively straightforward.
+1723.96|1724.96|All right.
+1724.96|1725.96|Thanks.
+1725.96|1727.96|Bye.
+1727.96|1732.96|This is a quick overview of the Paraplane render assets.
+1732.96|1737.96|So we've got three different named views, mall, auditorium, and hallway.
+1737.96|1746.96|And then you'll see if you look over the layers that the auditorium has four different features.
+1746.96|1747.96|The hallway has four.
+1747.96|1750.96|And then the mall has just this one.
+1750.96|1753.96|So the mall is Delaney.
+1753.96|1762.96|And then if we switch over to auditorium, you'll see we've got wave one, wave two, and then Gucci one and Gucci two.
+1762.96|1770.96|So the difference between wave one and wave two is that wave number two has variation on the stroke.
+1770.96|1777.96|And so as the spacing gets tighter between the panel edges, the stroke also gets tighter.
+1777.96|1778.96|And then the panel edges.
+1778.96|1779.96|And then the panel edges.
+1779.96|1780.96|And then the panel edges.
+1780.96|1781.96|And then the panel edges.
+1781.96|1782.96|And then the panel edges.
+1782.96|1783.96|Then we've got Gucci one.
+1783.96|1785.96|It's called Gucci because Paul, you had said that.
+1785.96|1788.96|The pattern kind of looked like a Gucci pattern.
+1788.96|1793.96|And then Gucci two is just rotated 180.
+1793.96|1798.96|Then over to hallway.
+1798.96|1802.96|We've got this first iteration.
+1802.96|1804.96|So hallway one.
+1804.96|1807.96|Then hallway two.
+1807.96|1808.96|Hallway three.
+1808.96|1809.96|Hallway four.
+1809.96|1820.08|And then if you drop down the layers, so we have panels and the PET panel in the sub layers.
+1822.22|1823.86|And that should be it. Thanks.
+1826.32|1830.46|Hey, Jan, just wanted to run through these definitions with you quick.
+1831.04|1835.74|I'll show you how the inputs work and what all the parameters do.
+1835.74|1841.78|So let's first start off by I'm going to disable the kangaroo solver.
+1843.28|1850.78|And what I'll do is run through the bug that you were finding in the previous version.
+1853.60|1858.84|So essentially what it is, let me turn off the intersections as well.
+1859.68|1863.44|Okay, so you know how we have this billowing effect,
+1864.02|1865.72|where it's essentially taking the...
+1865.74|1869.54|the middle node of the arc and increasing the Z value.
+1870.98|1878.82|So what happens is if this gets to too high of a value,
+1879.04|1882.44|let's put it here, bring it up.
+1884.14|1888.70|What you'll see is that the billow, the arc that's being created,
+1888.80|1894.14|is actually exceeding the ceiling of the cones.
+1894.28|1895.14|And so what happens...
+1895.74|1899.44|is we get multiple intersections and it sort of just breaks everything.
+1899.54|1904.14|So what I have this set to is a lower number.
+1904.24|1908.64|I've got the limit set to 1500.
+1910.04|1911.64|And it may have to be lower than that.
+1911.74|1914.84|I haven't tested all of the possible variables,
+1914.94|1919.34|but what we want to make sure of is that this doesn't exceed the top,
+1919.44|1921.04|so we don't get multiple intersections.
+1921.84|1925.58|So given these values, I can turn the intersection back on.
+1925.74|1930.74|And it takes just a moment for it to calculate.
+1950.24|1953.64|All right, and you'll see we have straight pipes
+1953.74|1955.64|with doubly curved surfaces.
+1955.84|1957.74|So we can see that there are some surfaces
+1957.84|1962.64|that are being created between the intersections and the pipes.
+1964.74|1967.64|So I changed this up a little bit.
+1967.74|1972.64|I actually separated this whole thing out separately
+1972.74|1979.64|so that each cone has all of its own surfaces in one cluster.
+1979.74|1984.64|So then this cluster, if you double-click inside of that,
+1984.64|1988.54|this is all the functionality that's creating the intersections
+1988.64|1990.54|and those resulting surfaces.
+1990.64|1994.54|And then when you're done, you can just...
+1994.64|1999.54|or after you click into a cluster, the way to get out of it is just go File,
+1999.64|2001.54|and then Save and Return.
+2001.64|2004.54|And it'll save whatever changes you made to the cluster
+2004.64|2009.54|and return back to the original document.
+2014.64|2017.54|And another way to do it, if you're in the cluster,
+2017.64|2021.54|you can go up here and then just close the cluster
+2021.64|2023.54|if you don't want to see the changes.
+2023.64|2027.54|Close the cluster and you get back to the main document.
+2027.64|2031.54|And then one thing to note is that if you change this cluster,
+2031.64|2034.54|it's going to also change all of these because they're linked.
+2034.64|2039.54|It's basically a copy of this instance of one of these instances.
+2039.64|2044.54|And then I also used a cluster over here in the Kangaroo solver.
+2044.64|2047.54|So I'll jump inside here.
+2047.64|2050.54|And this is the Kangaroo solver.
+2050.64|2055.54|The way that it works is it has a main component right here.
+2055.64|2057.54|This is the solver.
+2057.64|2063.54|And then you have all of these goals that you're trying to set.
+2063.64|2068.54|So this one is just telling the solver that you're going to preview the mesh.
+2068.64|2070.54|This one's going to smooth the mesh.
+2070.64|2074.54|This one is a constraint for the...
+2074.64|2078.54|the edges of the mesh,
+2078.64|2082.54|basically the triangles that are creating the mesh.
+2082.64|2089.54|And then this is a component that keeps all of the points at the seaplane.
+2089.64|2093.54|This one is an anchor around the perimeter
+2093.64|2101.54|so that when you give pressure to the surface,
+2101.54|2105.44|it doesn't escape the perimeter.
+2105.54|2110.44|And then this is the actual pressure that we're adding to inflate the surface.
+2117.54|2118.44|So I'll close that.
+2118.54|2121.44|And I don't want to make any changes,
+2121.54|2123.44|so I'll just say no, I don't want to save it.
+2123.54|2126.44|And then we're back to the main piece here.
+2126.54|2131.44|Okay, so what I'm going to do is open up the...
+2131.64|2134.44|just the simplified inflation script,
+2134.54|2136.44|just to show you how it works,
+2136.54|2138.44|then I'll jump back into the other one.
+2138.54|2140.44|So this is where I started.
+2140.54|2147.44|I made a definition that essentially takes an interpolated curve,
+2147.54|2149.44|applies a mesh to it,
+2149.54|2154.44|and then allows me to inflate it based on the same constraints that I just showed you before.
+2154.54|2158.44|So what we want to do to start the simulation is
+2158.54|2161.44|we want to make sure that the pressure is set to zero, first of all.
+2161.64|2164.44|And then we'll do a reset.
+2166.64|2169.44|And then we can increase the pressure.
+2169.54|2173.44|You can see it's almost like it's breathing as I'm sliding.
+2173.54|2180.44|Now the other thing you can do is you can select the curve and edit it.
+2180.54|2183.44|But what you'll notice is that when I'm doing that,
+2183.54|2186.44|there's some artifacting happening over here.
+2186.54|2191.44|And what you have to do to get rid of that is you just reset that.
+2191.64|2194.44|You reset the solver after you change the input.
+2194.54|2196.44|So I've changed the input and I reset the solver.
+2196.54|2198.44|And now that artifacting will go away.
+2198.54|2206.44|And what you can also do is if I create a new interpolated curve like that,
+2206.54|2212.44|just select it and then set one curve.
+2212.54|2214.44|Again, we have artifacting.
+2214.54|2221.44|What I'm going to do is set this back to zero, reset the solver,
+2221.64|2224.44|and then I can increase and decrease pressure.
+2224.54|2230.44|Now you'll see this one is pretty interactive and I'm seeing live updates.
+2230.54|2235.44|It's a relatively lightweight mesh, but with this other definition,
+2235.54|2237.44|there's so many intersections and other things going on
+2237.54|2244.44|that it's not quite as responsive interaction, I suppose.
+2244.54|2249.44|So what we'll do here is I'm going to turn on the solver.
+2249.54|2251.44|It's essentially a Boolean
+2251.64|2256.44|telling the solver to turn on.
+2256.54|2260.44|So we'll turn that on.
+2260.54|2263.44|And what I should have done is set this to zero first before I turn it on,
+2263.54|2266.44|but it seemed to work okay.
+2266.54|2269.44|Now I'm going to bring this to zero.
+2275.64|2278.44|Okay, and then I'm going to reset.
+2278.54|2281.44|It's just a button right here.
+2281.54|2284.44|So I'm going to press the button and then I'm going to press the button again.
+2284.54|2286.44|And then I'm going to press the button again.
+2286.54|2288.44|And then I'm going to press the button again.
+2288.54|2290.44|And then I'm going to press the button again.
+2290.54|2292.44|Okay, so now we're back at zero.
+2292.54|2294.44|We've got a flat mesh.
+2294.54|2302.44|And if I increase this to, let's say, 15,
+2302.54|2306.44|you're going to notice that it's actually a bit lumpy.
+2306.54|2311.44|And the reason is because Kangaroo is an iterative solver.
+2311.44|2316.34|So it's going through this smoothing calculation.
+2316.44|2318.34|And the more times you run it through the calculation,
+2318.44|2320.34|the smoother it's actually going to get.
+2320.44|2323.34|So I'll increase this then to, let's say, 17.
+2330.44|2333.34|And let's say 20.
+2333.44|2335.34|And it's kind of like you're stretching out the surface.
+2335.44|2338.34|And then you can deflate it a bit back down to 15,
+2338.44|2341.34|and it'll be nice and smooth.
+2341.44|2343.34|19.
+2371.44|2382.34|20.
+2382.44|2384.34|Which is about 10 percent.
+2384.44|2387.34|A little mache.
+2387.44|2391.34|All right, so that's looking pretty good.
+2391.44|2393.34|And, of course, you can bring this down to
+2393.44|2397.34|whatever you feel like will match the aesthetic
+2397.44|2399.34|that you're looking for.
+2399.34|2405.68|currently set to global inflation, which means that this red box right here is going to control
+2405.68|2407.04|the inflation of all of these.
+2408.30|2415.90|Now, however, if you want to have individual inflation, what we'll do is, again, we'll
+2415.90|2417.22|bring this back to zero.
+2424.42|2427.80|And I'm going to reset the solver right here.
+2429.34|2438.82|All right, now we're back to flat mesh.
+2439.34|2442.74|And I'm going to change this to individual inflation.
+2453.14|2458.74|So now the inflation of these is going to be determined by this individual inflation.
+2459.34|2462.12|And again, I'm going to release individual inputs over here.
+2462.28|2469.00|So this top left cone will be controlled right here, and it works the same.
+2469.08|2470.48|I've got a reset button and an inflation.
+2470.72|2472.78|So let's put this one up to 15.
+2475.94|2477.52|And again, you'll see it's a bit lumpy.
+2477.72|2478.80|We'll jump this to 20.
+2479.62|2482.20|Actually, let's step up to 18, then 20.
+2486.34|2486.84|And again, you'll see it's a bit lumpy.
+2486.84|2487.34|So let's put this one up to 20.
+2487.34|2489.32|And again, you'll see it's a bit lumpy.
+2489.34|2495.84|And we'll sort of back it off, back on down to 15 or 12 or something.
+2495.84|2500.02|And you'll see it's running quite a bit quicker because it's not actually trying to solve
+2500.02|2507.02|for all 8 of these.
+2507.02|2514.02|So that should do it.
+2520.42|2524.30|I think that covers just about everything.
+2524.30|2527.74|If you have any questions, just
+2527.74|2530.82|send me an email and we'll go from there.
+2530.82|2531.20|Thanks.

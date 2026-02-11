@@ -46,3 +46,10 @@ checkpoints/
 
 # Ignore generated sample .wav files
 **/*.wav
+
+# Auto-added: ignore files >= 100MB
+/combined_voice.wav
+/combined_voice_deessed.wav
+/xtts_finetuned/checkpoint_epoch_2.pth
+/xtts_finetuned/checkpoint_epoch_4.pth
+/xtts_finetuned/checkpoint_epoch_6.pth
